@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LoginButton } from "@/lib/wagmi";
 
 export default function Nav() {
   return (
@@ -20,9 +21,7 @@ export default function Nav() {
       </div>
       <div className="hidden lg:flex lg:gap-x-12"></div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <button className="font-semibold leading-6 text-gray-900">
-          Log in <span aria-hidden="true">&rarr;</span>
-        </button>
+        <LoginButton />
       </div>
     </nav>
   );
