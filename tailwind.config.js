@@ -6,7 +6,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: { sans: ["Inter", "Open Sans", "sans-serif"] },
     extend: {},
   },
   plugins: [],
-}
+};
