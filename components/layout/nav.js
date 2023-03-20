@@ -2,9 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { LoginButton } from "@/lib/wagmi";
 import { useAccount } from "wagmi";
+import { useState, useEffect } from "react";
+import { useCurrentUser } from "@/store/user";
 
 export default function Nav() {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
+  const userData = useCurrentUser();
+
+  useEffect(() => {
+    isConnected ? userData.setUser(address) : userData.setUserClear();
+  }, [isConnected]);
 
   return (
     <nav
@@ -27,9 +34,9 @@ export default function Nav() {
         <div className="ml-auto">
           <LoginButton />
         </div>
-        {isConnected ? (
+        {userData.walletAddress ? (
           <Link
-            href={"/dashboard"}
+            href="/dashboard"
             className="text-sm text-gray-500 mt-3 ml-auto mr-1 hover:text-indigo-500"
           >
             Check my listings
