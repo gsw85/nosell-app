@@ -1,17 +1,17 @@
 import Head from "next/head";
 
 export default function MetaHeader({
-  title = "A Sip of Goodness, Lasting Quality",
-  description = "Walker Tea is a company dedicated to providing its customers with the highest quality tea blends.",
+  title = "Selling made simple, for everyone",
+  description = "Sell anything, anywhere, in seconds with Nosell - the ultimate platform for hassle-free digital product selling.",
   keywords = "",
-  image = "/walkertea.jpg",
+  image = "/banner.jpg",
   noIndexNoFollow = true,
   url = "https://www.nosell.xyz",
 }) {
   const tagTitle = "NOSELL | " + title;
   const imageUrl = "https://www.nosell.xyz" + image;
   const tagKeyWords =
-    "Walker Tea, Tea Lover, Tea Time, Tea Addict, Tea Culture, High Quality Tea, Premium Tea" +
+    "digital products, sell for eth, sell for bitcoin, sell for busd, web3 sell, web3 ecommerce, anonymous selling, anonymous" +
     keywords;
   return (
     <>
@@ -29,7 +29,7 @@ export default function MetaHeader({
         <meta property="og:type" content="website" />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={tagTitle} />
-        <meta property="og:site_name" content="walkertea.com" />
+        <meta property="og:site_name" content="nosell.xyz" />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
