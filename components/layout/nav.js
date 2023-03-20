@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LoginButton } from "@/lib/wagmi";
+import { useAccount } from "wagmi";
 
 export default function Nav() {
+  const { isConnected } = useAccount();
+
   return (
     <nav
-      className="flex items-center justify-between px-10 py-8"
+      className="flex items-center justify-between px-10 py-8 mb-24"
       aria-label="Global"
     >
       <div className="flex flex-1">
@@ -19,9 +22,23 @@ export default function Nav() {
           />
         </Link>
       </div>
-      <div className="hidden lg:flex lg:gap-x-12"></div>
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <LoginButton />
+
+      <div className="flex flex-col">
+        <div className="ml-auto">
+          <LoginButton />
+        </div>
+        {isConnected ? (
+          <Link
+            href={"/dashboard"}
+            className="text-sm text-gray-500 mt-3 ml-auto mr-1 hover:text-indigo-500"
+          >
+            Check my listings
+          </Link>
+        ) : (
+          <div className="text-xs text-gray-500 mt-2 italic">
+            Connect to track your listings
+          </div>
+        )}
       </div>
     </nav>
   );
