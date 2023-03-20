@@ -11,7 +11,7 @@ export default function Nav() {
       <div className="flex flex-1">
         <Link href="/" className="-m-1.5 p-1.5">
           <Image
-            className="h-10 w-auto"
+            className="h-12 w-auto"
             src="/logo.svg"
             width={100}
             height={100}
