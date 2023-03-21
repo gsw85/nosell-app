@@ -24,7 +24,7 @@ export function FooterWhiteTransparent() {
           className="text-indigo-500 hover:text-indigo-600"
           href={"/support"}
         >
-          support
+          Support
         </Link>
       </div>
       <div>{copyRight}</div>
