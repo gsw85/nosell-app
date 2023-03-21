@@ -105,7 +105,7 @@ export default function Home() {
                         </div>
                         <p className="pl-1">or drag and drop</p>
                       </div>
-                      <p className="text-xs text-gray-500">up to 50MB</p>
+                      <p className="text-xs text-gray-500">up to 200MB</p>
                     </div>
                   )}
                 </div>
