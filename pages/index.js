@@ -203,6 +203,9 @@ export default function Home() {
               </button>
             </div>
           </div>
+          <div className="text-red-500 text-sm my-2 font-semibold hidden">
+            Error:{" "}
+          </div>
         </form>
         <FooterWhiteTransparent />
       </div>
