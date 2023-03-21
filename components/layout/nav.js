@@ -15,17 +15,25 @@ export default function Nav() {
 
   return (
     <nav
-      className="flex items-center justify-between px-10 py-8 mb-24 max-w-5xl mx-auto"
+      className="flex justify-between px-4 py-8 mb-24 xl:px-0 max-w-5xl mx-auto"
       aria-label="Global"
     >
       <div className="flex flex-1">
-        <Link href="/" className="-m-1.5 p-1.5">
+        <Link href="/" className="mt-1">
           <Image
             priority
-            className="h-12 w-auto"
-            src="/logo.svg"
-            width={100}
-            height={100}
+            className="h-12 w-auto hidden sm:block"
+            src="/logo.png"
+            width={714}
+            height={200}
+            alt="nosell"
+          />
+          <Image
+            priority
+            className="h-12 w-auto sm:hidden"
+            src="/icon.png"
+            width={200}
+            height={200}
             alt="nosell"
           />
         </Link>
