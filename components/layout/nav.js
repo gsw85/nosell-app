@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LoginButton } from "@/lib/wagmi";
 import { useAccount } from "wagmi";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useCurrentUser } from "@/store/user";
 
 export default function Nav() {
@@ -15,7 +15,7 @@ export default function Nav() {
 
   return (
     <nav
-      className="flex items-center justify-between px-10 py-8 mb-24"
+      className="flex items-center justify-between px-10 py-8 mb-24 max-w-5xl mx-auto"
       aria-label="Global"
     >
       <div className="flex flex-1">
