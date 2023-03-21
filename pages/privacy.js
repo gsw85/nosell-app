@@ -1,4 +1,5 @@
 import MetaHeader from "@/components/meta-header";
+import { FooterWhiteTransparent } from "@/components/layout/footer";
 
 export default function Privacy() {
   return (
@@ -48,6 +49,7 @@ export default function Privacy() {
           Privacy Policy, we will notify you by posting a notice on our website.
         </div>
       </div>
+      <FooterWhiteTransparent />
     </>
   );
 }

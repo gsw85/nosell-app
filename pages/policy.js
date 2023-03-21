@@ -1,4 +1,5 @@
 import MetaHeader from "@/components/meta-header";
+import { FooterWhiteTransparent } from "@/components/layout/footer";
 
 export default function Policy() {
   return (
@@ -33,6 +34,7 @@ export default function Policy() {
           Thank you for your understanding and continued patronage.
         </div>
       </div>
+      <FooterWhiteTransparent />
     </>
   );
 }
