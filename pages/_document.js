@@ -8,7 +8,7 @@ export default function Document() {
         rel="stylesheet"
       />
       <Head />
-      <body className="min-h-screen font-sans">
+      <body className="min-h-full font-sans">
         <Main />
         <NextScript />
       </body>
