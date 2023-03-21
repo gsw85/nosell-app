@@ -94,7 +94,7 @@ export default function Home() {
                           Drop some files here
                         </p>
                       </div>
-                      <p className="text-xs text-gray-500">up to 50MB</p>
+                      <p className="text-xs text-gray-500">up to 200MB</p>
                     </div>
                   ) : (
                     <div className="space-y-1 text-center">
