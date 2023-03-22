@@ -1,13 +1,16 @@
 import MetaHeader from "@/components/meta-header";
 import { useForm } from "react-hook-form";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { useCurrentUser } from "@/store/user";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
+import { addListing } from "@/hooks/listings";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const userData = useCurrentUser();
+  const router = useRouter();
 
   const {
     register,
@@ -25,6 +28,8 @@ export default function Home() {
       )
     );
 
+    console.log(newFileList);
+
     if (duplicateName.length > 0) {
       setErrorUpload(`Cannot have same file name: ${duplicateName.join(", ")}`);
     } else {
@@ -35,13 +40,21 @@ export default function Home() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
-  const [payAddressCurrency, setPayAddressCurrency] = useState("btc");
+  const [payoutCurrency, setPayoutCurrency] = useState("btc");
   const [currencyList, setCurrencyList] = useState("");
   const [fileList, setFileList] = useState([]);
   const [errorUpload, setErrorUpload] = useState("");
 
   const onSubmit = (data) => {
-    console.log(data);
+    addListing(
+      userData.walletAddress,
+      data.title,
+      data.description,
+      data.price,
+      payoutCurrency,
+      data.payoutWallet,
+      fileList
+    ).then((listingID) => router.push(`sell/${listingID}`));
   };
 
   return (
@@ -171,8 +184,9 @@ export default function Home() {
                   </label>
                   <div className="mt-2 relative">
                     <input
-                      {...register("price", { required: true })}
+                      {...register("price", { required: true, min: 10 })}
                       type={"number"}
+                      defaultValue={10}
                       inputMode={"numeric"}
                       className="pl-10 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
                     />
@@ -190,12 +204,12 @@ export default function Home() {
                   </label>
                   <div className="mt-2 relative">
                     <input
-                      {...register("walletAddress", { required: true })}
+                      {...register("payoutWallet", { required: true })}
                       type="text"
                       className="pl-12 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
                     />
                     <div className="absolute left-2 top-0 bottom-0 h-full flex justify-center items-center text-sm text-gray-400">
-                      {payAddressCurrency}
+                      {payoutCurrency}
                     </div>
                   </div>
                   <div className="text-xs mt-2 text-indigo-300 cursor-pointer hover:text-indigo-600">
