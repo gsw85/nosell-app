@@ -4,13 +4,20 @@ import { LoginButton } from "@/lib/wagmi";
 import { useAccount } from "wagmi";
 import { useEffect } from "react";
 import { useCurrentUser } from "@/store/user";
+import { getUserLevel } from "@/hooks/users";
 
 export default function Nav() {
   const { isConnected, address } = useAccount();
   const userData = useCurrentUser();
 
   useEffect(() => {
-    isConnected ? userData.setUser(address) : userData.setUserClear();
+    isConnected
+      ? getUserLevel(address).then((member) =>
+          userData.setUser(address, member)
+        )
+      : userData.setUserClear();
+
+    console.log(userData);
   }, [isConnected]);
 
   return (
