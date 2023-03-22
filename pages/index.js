@@ -26,6 +26,7 @@ export default function Home() {
   const [payAddressCurrency, setPayAddressCurrency] = useState("btc");
   const [currencyList, setCurrencyList] = useState("");
   const [fileList, setFileList] = useState([]);
+  const [errorUpload, setErrorUpload] = useState("");
 
   const onSubmit = (data) => {
     console.log(data);
@@ -203,9 +204,11 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="text-red-500 text-sm my-2 font-semibold hidden">
-            Error:{" "}
-          </div>
+          {errorUpload && (
+            <div className="text-red-500 text-sm my-2 font-semibold hidden">
+              Error:{errorUpload}
+            </div>
+          )}
         </form>
         <FooterWhiteTransparent />
       </div>

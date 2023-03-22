@@ -46,9 +46,9 @@ export default function Nav() {
         {userData.walletAddress ? (
           <Link
             href="/dashboard"
-            className="text-sm text-gray-500 mt-3 ml-auto mr-1 hover:text-indigo-500"
+            className="text-sm text-indigo-500 mt-3 ml-auto mr-1 hover:text-indigo-600 font-semibold mr-2"
           >
-            Check my listings
+            Dashboard
           </Link>
         ) : (
           <div className="text-xs text-gray-500 mt-2 italic">
