@@ -16,8 +16,6 @@ export default function Nav() {
           userData.setUser(address, member)
         )
       : userData.setUserClear();
-
-    console.log(userData);
   }, [isConnected]);
 
   return (
