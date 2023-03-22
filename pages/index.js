@@ -18,7 +18,19 @@ export default function Home() {
 
   const onDrop = (acceptedFiles) => {
     const newFileList = fileList.concat(acceptedFiles);
-    setFileList(newFileList);
+    const fileNames = newFileList.map((file) => file.name);
+    const duplicateName = Array.from(
+      new Set(
+        fileNames.filter((name, index) => fileNames.indexOf(name) !== index)
+      )
+    );
+
+    if (duplicateName.length > 0) {
+      setErrorUpload(`Cannot have same file name: ${duplicateName.join(", ")}`);
+    } else {
+      setErrorUpload("");
+      setFileList(newFileList);
+    }
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
@@ -205,8 +217,8 @@ export default function Home() {
             </div>
           </div>
           {errorUpload && (
-            <div className="text-red-500 text-sm my-2 font-semibold hidden">
-              Error:{errorUpload}
+            <div className="text-red-500 text-sm my-2 font-semibold ">
+              Error: {errorUpload}
             </div>
           )}
         </form>
