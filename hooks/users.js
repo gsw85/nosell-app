@@ -1,5 +1,6 @@
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 import { firestore } from "@/lib/firebase";
+import { membership } from "@/components/membership";
 
 export async function getUserLevel(walletAddress = "") {
   if (!walletAddress) return false;
@@ -11,11 +12,11 @@ export async function getUserLevel(walletAddress = "") {
       return userSnap.data().member;
     } else {
       const newUserData = {
-        member: "free",
+        member: membership.free,
         createAt: serverTimestamp(),
         updateAt: serverTimestamp(),
       };
-      const userData = await setDoc(userRef, newUserData);
+      await setDoc(userRef, newUserData);
       return newUserData.member;
     }
   } catch (err) {
