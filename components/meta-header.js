@@ -18,7 +18,7 @@ export default function MetaHeader({
       <Head>
         {noIndexNoFollow && <meta name="robots" content="noindex,nofollow" />}
         <meta charSet="utf-8" />
-        <title>{title}</title>
+        <title>{tagTitle}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={tagKeyWords} />
         <meta name="twitter:card" content="summary" />
@@ -31,7 +31,7 @@ export default function MetaHeader({
         <meta property="og:title" content={tagTitle} />
         <meta property="og:site_name" content="nosell.xyz" />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={imageUrl} />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
     </>
