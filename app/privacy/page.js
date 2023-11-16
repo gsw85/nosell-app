@@ -1,7 +1,7 @@
 import MetaHeader from "@/components/meta-header";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
 
-export default function Privacy() {
+export default function Page() {
   return (
     <>
       <MetaHeader title={"Privacy"} />

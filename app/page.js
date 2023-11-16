@@ -1,12 +1,14 @@
-import MetaHeader from "@/components/meta-header";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useDropzone } from "react-dropzone";
-import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
+"use client";
+
 import { useCurrentUser } from "@/store/user";
-import { FooterWhiteTransparent } from "@/components/layout/footer";
-import { addListing } from "@/hooks/listings";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { useDropzone } from "react-dropzone";
+import { addListing } from "@/hooks/listings";
+import MetaHeader from "@/components/meta-header";
+import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
+import { FooterWhiteTransparent } from "@/components/layout/footer";
+import { useState } from "react";
 
 export default function Home() {
   const userData = useCurrentUser();
@@ -58,7 +60,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <main className="max-w-5xl mx-auto px-4 xl:px-0 min-h-screen">
       <MetaHeader />
       <div className="max-w-2xl mx-auto ">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -238,6 +240,6 @@ export default function Home() {
         </form>
         <FooterWhiteTransparent />
       </div>
-    </>
+    </main>
   );
 }

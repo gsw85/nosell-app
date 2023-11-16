@@ -1,6 +1,6 @@
 import MetaHeader from "@/components/meta-header";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
-export default function Support() {
+export default function Page() {
   return (
     <>
       <MetaHeader title={"Support"} />
