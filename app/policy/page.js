@@ -1,10 +1,11 @@
-import MetaHeader from "@/components/meta-header";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
+import metaheader from "@/components/meta-header";
+
+export const metadata = metaheader("Policy");
 
 export default function Page() {
   return (
     <>
-      <MetaHeader title={"Policy"} />
       <div className="flex flex-col space-y-3 text-gray-500">
         <div className="font-semibold text-lg text-black">Refund / Return</div>
         <div className="text-sm">

@@ -1,10 +1,11 @@
-import MetaHeader from "@/components/meta-header";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
+import metaheader from "@/components/meta-header";
+
+export const metadata = metaheader("Settings", "Profile Setting");
 
 export default function Page() {
   return (
     <>
-      <MetaHeader title={"About"} />
       <div className="flex flex-col space-y-2 text-gray-500">
         <div className="font-semibold text-lg text-black">About</div>
         <div className="text-sm">

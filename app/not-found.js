@@ -1,11 +1,11 @@
 import Link from "next/link";
 import MetaHeader from "@/components/meta-header";
+import metaheader from "@/components/meta-header";
+export const metadata = metaheader("404 Page | Page Not Found");
 
 export default function WrongLink() {
   return (
     <>
-      <MetaHeader title={"404 Page | Page Not Found"} noIndexNoFollow={true} />
-
       <div className="min-h-full px-4 pt-32 sm:px-6 sm:pt-64 md:grid md:place-items-center lg:px-8">
         <div className="mx-auto max-w-max">
           <main className="sm:flex">

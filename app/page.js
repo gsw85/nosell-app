@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { addListing } from "@/hooks/listings";
-import MetaHeader from "@/components/meta-header";
 import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
 import { FooterWhiteTransparent } from "@/components/layout/footer";
 import { useState } from "react";
@@ -59,7 +58,6 @@ export default function Home() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 xl:px-0 min-h-screen">
-      <MetaHeader />
       <div className="max-w-2xl mx-auto ">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-xs text-gray-300 mb-2">Create Listing</h1>
