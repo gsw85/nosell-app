@@ -30,8 +30,6 @@ export default function Home() {
       )
     );
 
-    console.log(newFileList);
-
     if (duplicateName.length > 0) {
       setErrorUpload(`Cannot have same file name: ${duplicateName.join(", ")}`);
     } else {
