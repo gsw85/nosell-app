@@ -39,7 +39,7 @@ export default function Page() {
           platform.
         </div>
         <div className="text-sm">
-          As a seller on nosell.xyz, you agree to pay us a commission of 10% on
+          As a seller on nosell.xyz, you agree to pay us a commission of 30% on
           the total amount of each sale you make on our platform. This
           commission covers the costs associated with operating and maintaining
           our platform.
