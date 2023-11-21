@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-// import { LoginButton } from "@/lib/wagmi";
 import { useAccount } from "wagmi";
 import { useEffect } from "react";
 import { useCurrentUser } from "@/store/user";
@@ -10,16 +9,7 @@ import { getUserLevel } from "@/hooks/users";
 import LoginButton from "./components/login-button";
 
 export default function Nav() {
-  const { isConnected, address } = useAccount();
   const userData = useCurrentUser();
-
-  useEffect(() => {
-    isConnected
-      ? getUserLevel(address).then((member) =>
-          userData.setUser(address, member)
-        )
-      : userData.setUserClear();
-  }, [isConnected]);
 
   return (
     <nav
@@ -53,8 +43,8 @@ export default function Nav() {
         </div>
         {userData.walletAddress ? (
           <Link
-            href="/dashboard"
-            className="text-sm text-indigo-500 mt-3 ml-auto mr-1 hover:text-indigo-600 font-semibold mr-2"
+            href={"/dashboard"}
+            className="text-sm text-indigo-500 mt-3 ml-auto hover:text-indigo-600 font-semibold mr-2"
           >
             Dashboard
           </Link>

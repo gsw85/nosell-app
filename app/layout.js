@@ -1,6 +1,5 @@
 import "./(style)/globals.css";
 import { Inter } from "next/font/google";
-import { AuthContext } from "@/lib/wagmi";
 import metaheader from "@/components/meta-header";
 import Nav from "@/components/layout/nav";
 export const metadata = metaheader();
@@ -15,10 +14,8 @@ export default function RootLayout({ children }) {
           inter.className + " max-w-5xl mx-auto px-4 xl:px-0 min-h-screen"
         }
       >
-        <AuthContext>
-          <Nav />
-          {children}
-        </AuthContext>
+        <Nav />
+        {children}
       </body>
     </html>
   );

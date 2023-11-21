@@ -1,12 +1,5 @@
 "use client";
 
-import TelegramLoginButton from "telegram-login-button";
-
 export default function LoginButton() {
-  return (
-    <TelegramLoginButton
-      botName="nosellbot"
-      dataOnauth={(user) => console.log(user)}
-    />
-  );
+  return <button className="px-4 py-1 bg-indigo-500 rounded">Login</button>;
 }
