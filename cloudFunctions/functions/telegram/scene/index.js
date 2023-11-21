@@ -1,6 +1,6 @@
 import { Scenes } from "telegraf";
 import { sceneID } from "./constant.js";
-import { addMileAgeDoc, minusMileAgeDoc } from "../../functions.js";
+import { addMileAgeDoc, minusMileAgeDoc } from "../functions.js";
 
 export function startScene() {
   const startAddLitre = new Scenes.BaseScene(sceneID.addLitre);

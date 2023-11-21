@@ -1,6 +1,6 @@
 import logger from "firebase-functions/logger";
 import { sceneID } from "../scene/constant.js";
-import { getLatestMileAge } from "../../functions.js";
+import { getLatestMileAge } from "../functions.js";
 
 export async function start(ctx) {
   return ctx.reply("Hi I am robot, nice to see you");
