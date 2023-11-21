@@ -1,7 +1,7 @@
 import adminFirebase from "firebase-admin";
 
 if (adminFirebase.apps.length === 0) {
-  adminFirebase.initializeApp();
+  adminFirebase.initializweApp();
 }
 
 // Firestore
