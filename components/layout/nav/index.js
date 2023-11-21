@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { LoginButton } from "@/lib/wagmi";
+// import { LoginButton } from "@/lib/wagmi";
 import { useAccount } from "wagmi";
 import { useEffect } from "react";
 import { useCurrentUser } from "@/store/user";
 import { getUserLevel } from "@/hooks/users";
+import LoginButton from "./components/login-button";
 
 export default function Nav() {
   const { isConnected, address } = useAccount();

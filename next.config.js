@@ -8,15 +8,27 @@ const nextConfig = {
   },
   swcMinify: true,
   images: {
-    domains: [
-      "images.unsplash.com",
-      "unsplash.com",
-      "marquint.com",
-      "mainnet.marquint.com",
-      "images.pexels.com",
-      "firebasestorage.googleapis.com",
-      "mnojeqnmhlhtgrlutzrj.supabase.co",
-      "ygiuiabtxsxqxycxljfs.supabase.co",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.marquint.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.pexels.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.supabase.co",
+      },
+      {
+        protocol: "https",
+        hostname: "**.googleapis.com",
+      },
     ],
   },
 };

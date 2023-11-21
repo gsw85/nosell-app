@@ -1,8 +1,8 @@
 import "./(style)/globals.css";
 import { Inter } from "next/font/google";
-import Nav from "@/components/layout/nav";
 import { AuthContext } from "@/lib/wagmi";
 import metaheader from "@/components/meta-header";
+import Nav from "@/components/layout/nav";
 export const metadata = metaheader();
 
 const inter = Inter({ subsets: ["latin"] });
