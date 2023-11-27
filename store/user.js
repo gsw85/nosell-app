@@ -1,5 +1,6 @@
 import { create } from "zustand";
 export const useCurrentUser = create((set) => ({
+  userID: "",
   walletAddress: "",
   member: "",
   setUser: (walletAddress, member) =>
