@@ -5,6 +5,15 @@ export const metadata = metaheader("Privacy");
 export default function Page() {
   return (
     <div className="flex flex-col space-y-5 text-gray-500">
+      <div className="overflow-hidden rounded-3xl mb-10">
+        <img
+          className="h-full w-full object-cover"
+          alt={"Support"}
+          src={
+            "https://images.pexels.com/photos/267447/pexels-photo-267447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          }
+        />
+      </div>
       <div className="font-semibold text-2xl text-black">Privacy Policy</div>
       <div>
         We take your privacy very seriously. This Privacy Policy explains how we

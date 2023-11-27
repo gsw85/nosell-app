@@ -5,16 +5,21 @@ export const metadata = metaheader("Policy");
 export default function Page() {
   return (
     <div className="flex flex-col space-y-5 text-gray-500">
+      <div className="overflow-hidden rounded-3xl mb-10">
+        <img
+          className="h-full w-full object-cover"
+          alt={"Support"}
+          src={
+            "https://images.pexels.com/photos/7821937/pexels-photo-7821937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          }
+        />
+      </div>
       <div className="font-semibold text-2xl text-black">Refund / Return</div>
       <div>
-        Thank you for purchasing digital product listed in nosell. We hope you
-        are satisfied with your purchase, but please be aware that as
-        nosell.xyz, we do not offer any returns or refunds for digital products.
-      </div>
-      <div>
-        All sales of digital products are final. Once you have completed your
-        purchase and received the digital product, you cannot return or exchange
-        it for any reason. We do not provide refunds for any digital products.
+        We do not offer any returns or refunds for digital products. All sales
+        of digital products are final. Once you have completed your purchase and
+        received the digital product, you cannot return or exchange it for any
+        reason. We do not provide refunds for any digital products.
       </div>
       <div>
         We reserve the right to refuse any returns or refunds at our discretion.
@@ -25,11 +30,6 @@ export default function Page() {
 
       <div className="font-semibold text-2xl text-black pt-5">
         Seller Policy
-      </div>
-      <div>
-        Thank you for choosing to sell your products/services on nosell.xyz.
-        This policy outlines the terms and conditions for selling on our
-        platform.
       </div>
       <div>
         As a seller on nosell.xyz, you agree to pay us a commission of 30% on

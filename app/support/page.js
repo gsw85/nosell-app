@@ -5,6 +5,15 @@ export const metadata = metaheader("Support");
 export default function Page() {
   return (
     <div className="flex flex-col space-y-5 text-gray-500">
+      <div className="overflow-hidden rounded-3xl mb-10">
+        <img
+          className="h-full w-full object-cover"
+          alt={"Support"}
+          src={
+            "https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg"
+          }
+        />
+      </div>
       <div className="font-semibold text-2xl text-black">Support Policy</div>
       <div>
         We appreciate your interest in our products/services. Please note that
