@@ -1,238 +1,174 @@
-"use client";
-
-import { useCurrentUser } from "@/store/user";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { useDropzone } from "react-dropzone";
-import { addListing } from "@/hooks/listings";
-import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+const products = [
+  {
+    id: 1,
+    name: "Basic Tee 8-Pack",
+    href: "#",
+    price: "$256",
+    description:
+      "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
+    options: "8 colors",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
+    imageAlt:
+      "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
+  },
+  {
+    id: 2,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 3,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 4,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 5,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 6,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  {
+    id: 7,
+    name: "Basic Tee",
+    href: "#",
+    price: "$32",
+    description:
+      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    options: "Black",
+    imageSrc:
+      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageAlt: "Front of plain black t-shirt.",
+  },
+  // More products...
+];
 
 export default function Home() {
-  const userData = useCurrentUser();
-  const router = useRouter();
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  const onDrop = (acceptedFiles) => {
-    const newFileList = fileList.concat(acceptedFiles);
-    const fileNames = newFileList.map((file) => file.name);
-    const duplicateName = Array.from(
-      new Set(
-        fileNames.filter((name, index) => fileNames.indexOf(name) !== index)
-      )
-    );
-
-    if (duplicateName.length > 0) {
-      setErrorUpload(`Cannot have same file name: ${duplicateName.join(", ")}`);
-    } else {
-      setErrorUpload("");
-      setFileList(newFileList);
-    }
-  };
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
-
-  const [payoutCurrency, setPayoutCurrency] = useState("btc");
-  const [currencyList, setCurrencyList] = useState("");
-  const [fileList, setFileList] = useState([]);
-  const [errorUpload, setErrorUpload] = useState("");
-
-  const onSubmit = (data) => {
-    addListing(
-      userData.walletAddress,
-      data.title,
-      data.description,
-      data.price,
-      payoutCurrency,
-      data.payoutWallet,
-      fileList
-    ).then((listingID) => router.push(`sell/${listingID}`));
-  };
-
   return (
-    <div className="max-w-5xl mx-auto px-4 xl:px-0 py-16">
-      <div className="max-w-2xl mx-auto ">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="text-xs text-gray-300 mb-2">Create Listing</h1>
-          <div className="shadow sm:overflow-hidden sm:rounded-md">
-            <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-              <div>
-                <label
-                  htmlFor="title"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Title
-                </label>
-                <div className="mt-2">
-                  <input
-                    {...register("title", { required: true })}
-                    type={"text"}
-                    className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                    placeholder="Title of this listing"
-                  />
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor="description"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Description
-                </label>
-                <div className="mt-2">
-                  <textarea
-                    {...register("description", { required: true })}
-                    rows={5}
-                    className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                    placeholder="Description about the file"
-                  />
-                </div>
-                <p className="mt-2 text-sm text-gray-500">
-                  Brief description for your file.
-                </p>
-              </div>
-
-              <div>
-                <div
-                  {...getRootProps()}
-                  className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6"
-                >
-                  <input
-                    {...register("files")}
-                    {...getInputProps()}
-                    type="file"
-                    multiple
-                  />
-                  {isDragActive ? (
-                    <div className="space-y-1 text-center">
-                      <ArrowDownTrayIcon className="mx-auto h-10 w-10 mt-2 mb-4 text-gray-700" />
-                      <div className="flex text-sm text-gray-600">
-                        <p className="pl-1 font-semibold text-gray-700">
-                          Drop some files here
-                        </p>
-                      </div>
-                      <p className="text-xs text-gray-500">up to 200MB</p>
-                    </div>
-                  ) : (
-                    <div className="space-y-1 text-center">
-                      <ArrowDownTrayIcon className="mx-auto h-10 w-10 mt-2 mb-4 text-gray-400" />
-                      <div className="flex text-sm text-gray-600">
-                        <div className="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
-                          Upload a file
-                        </div>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs text-gray-500">up to 200MB</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-              <div>
-                <ul
-                  role="list"
-                  className={`divide-y divide-gray-200 rounded-md border border-gray-200 ${
-                    fileList.length === 0 && "hidden"
-                  }`}
-                >
-                  {fileList.map((item, index) => (
-                    <li
-                      key={item.name + index}
-                      className="flex items-center justify-between py-3 pl-3 pr-4 text-sm"
-                    >
-                      <div className="flex w-0 flex-1 items-center">
-                        <PaperClipIcon
-                          className="h-5 w-5 flex-shrink-0 text-gray-400"
-                          aria-hidden="true"
-                        />
-                        <span className="ml-2 w-0 flex-1 truncate">
-                          {item.name}
-                        </span>
-                      </div>
-                      <div className="ml-4 flex-shrink-0">
-                        <span
-                          onClick={() => {
-                            const newFileList = fileList.filter(
-                              (_, i) => i !== index
-                            );
-                            setFileList(newFileList);
-                          }}
-                          className="font-medium text-red-500 hover:text-red-600 cursor-pointer"
-                        >
-                          Remove
-                        </span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="grid sm:grid-cols-3 grid-cols-1 sm:space-x-5 space-y-5 sm:space-y-0">
-                <div className="col-span-1">
-                  <label
-                    htmlFor="price"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Price to download
-                  </label>
-                  <div className="mt-2 relative">
-                    <input
-                      {...register("price", { required: true, min: 10 })}
-                      type={"number"}
-                      defaultValue={10}
-                      inputMode={"numeric"}
-                      className="pl-10 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                    />
-                    <div className="absolute left-2 top-0 bottom-0 h-full flex justify-center items-center text-sm text-gray-400">
-                      USD
-                    </div>
-                  </div>
-                </div>
-                <div className="col-span-2">
-                  <label
-                    htmlFor="price"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Payout Address
-                  </label>
-                  <div className="mt-2 relative">
-                    <input
-                      {...register("payoutWallet", { required: true })}
-                      type="text"
-                      className="pl-12 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                    />
-                    <div className="absolute left-2 top-0 bottom-0 h-full flex justify-center items-center text-sm text-gray-400">
-                      {payoutCurrency}
-                    </div>
-                  </div>
-                  <div className="text-xs mt-2 text-indigo-300 cursor-pointer hover:text-indigo-600">
-                    Change Currency
-                  </div>
-                </div>
-              </div>
+    <div>
+      <div className="relative py-10">
+        <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
+            <div className="absolute inset-0">
+              <img
+                className="h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
+                alt="People working on laptops"
+              />
+              <div className="absolute inset-0 bg-indigo-700 mix-blend-multiply" />
             </div>
-            <div className="flex justify-between bg-gray-50 px-4 py-3 items-center sm:px-6">
-              <span className="text-xs truncate">
-                {userData.walletAddress && "Owner: " + userData.walletAddress}
-              </span>
-              <button
-                type="submit"
-                className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
-                Create
-              </button>
+            <div className="relative px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+              <h1 className="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                <span className="block text-white">Take control of your</span>
+                <span className="block text-indigo-200">customer support</span>
+              </h1>
+              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-indigo-200 sm:max-w-3xl">
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+                fugiat aliqua.
+              </p>
+              <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center">
+                <div className="space-y-4 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5 sm:space-y-0">
+                  <a
+                    href="#"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-3 text-base font-medium text-indigo-700 shadow-sm hover:bg-indigo-50 sm:px-8"
+                  >
+                    Get started
+                  </a>
+                  <a
+                    href="#"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-indigo-500 bg-opacity-60 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-opacity-70 sm:px-8"
+                  >
+                    Live demo
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          {errorUpload && (
-            <div className="text-red-500 text-sm my-2 font-semibold ">
-              Error: {errorUpload}
-            </div>
-          )}
-        </form>
+        </div>
+      </div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 className="sr-only">Products</h2>
+
+          <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
+              >
+                <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
+                  <img
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    className="h-full w-full object-cover object-center sm:h-full sm:w-full"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col space-y-2 p-4">
+                  <h3 className="text-sm font-medium text-gray-900">
+                    <a href={product.href}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.name}
+                    </a>
+                  </h3>
+                  <p className="text-sm text-gray-500">{product.description}</p>
+                  <div className="flex flex-1 flex-col justify-end">
+                    <p className="text-sm italic text-gray-500">
+                      {product.options}
+                    </p>
+                    <p className="text-base font-medium text-gray-900">
+                      {product.price}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

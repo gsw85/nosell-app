@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 export default function Register({ props }) {
+  const { setIsLogin } = props;
+
   return (
     <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-sm space-y-10">
         <div>
-          <img className="mx-auto h-10 w-auto" src="/logo.svg" alt="NOSELL" />
+          <img className="mx-auto h-10 w-auto" src="/icon.png" alt="NOSELL" />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign up for a new account
           </h2>
@@ -44,8 +48,8 @@ export default function Register({ props }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
-                id="remember-me"
-                name="remember-me"
+                id="agree"
+                name="agree"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
               />
@@ -53,17 +57,18 @@ export default function Register({ props }) {
                 htmlFor="remember-me"
                 className="ml-3 block text-sm leading-6 text-gray-900"
               >
-                Remember me
+                I agree to the{" "}
+                <a
+                  target={"_blank"}
+                  href={"/policy"}
+                  className={
+                    "font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                  }
+                >
+                  terms and conditions
+                </a>
+                .
               </label>
-            </div>
-
-            <div className="text-sm leading-6">
-              <a
-                href="#"
-                className="font-semibold text-indigo-600 hover:text-indigo-500"
-              >
-                Forgot password?
-              </a>
             </div>
           </div>
 
@@ -72,19 +77,20 @@ export default function Register({ props }) {
               type="submit"
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Sign in
+              Sign up
             </button>
           </div>
         </form>
 
-        <p className="text-center text-sm leading-6 text-gray-500">
-          Not a member?{" "}
-          <a
-            href="#"
-            className="font-semibold text-indigo-600 hover:text-indigo-500"
+        <p className="mt-10 text-center text-sm text-gray-500">
+          Already a member?{" "}
+          <button
+            type={"button"}
+            onClick={() => setIsLogin(true)}
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
           >
-            Start a 14-day free trial
-          </a>
+            Log in here
+          </button>
         </p>
       </div>
     </div>

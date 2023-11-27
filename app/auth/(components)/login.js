@@ -1,4 +1,6 @@
 export default function Login({ props }) {
+  const { setIsLogin } = props;
+
   return (
     <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-sm space-y-10">
@@ -76,6 +78,16 @@ export default function Login({ props }) {
             </button>
           </div>
         </form>
+        <p className="mt-10 text-center text-sm text-gray-500">
+          Not a member?{" "}
+          <button
+            type={"button"}
+            onClick={() => setIsLogin(false)}
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
+            Register now
+          </button>
+        </p>
       </div>
     </div>
   );
