@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 
+
+/*hide scroll bar*/
+body::-webkit-scrollbar{
+    display: none;
+}
