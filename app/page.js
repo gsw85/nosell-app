@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { addListing } from "@/hooks/listings";
 import { ArrowDownTrayIcon, PaperClipIcon } from "@heroicons/react/24/outline";
-import { FooterWhiteTransparent } from "@/components/layout/footer";
 import { useState } from "react";
 
 export default function Home() {
@@ -57,7 +56,7 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-5xl mx-auto px-4 xl:px-0 min-h-screen">
+    <div className="max-w-5xl mx-auto px-4 xl:px-0 py-16">
       <div className="max-w-2xl mx-auto ">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-xs text-gray-300 mb-2">Create Listing</h1>
@@ -234,8 +233,7 @@ export default function Home() {
             </div>
           )}
         </form>
-        <FooterWhiteTransparent />
       </div>
-    </main>
+    </div>
   );
 }

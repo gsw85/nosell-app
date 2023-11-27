@@ -1,15 +1,15 @@
 export default function metaheader(
   title = "Selling made simple, for everyone",
-  description = "Sell anything, anywhere, in seconds with Nosell - the ultimate platform for hassle-free digital product selling.",
+  description = "Sell anything, anywhere, in seconds with Nosell - the ultimate platform for hassle-free product selling.",
   keywords = "",
   image = "/banner.jpg",
-  noIndexNoFollow = true,
+  noIndexNoFollow = false,
   url = "https://www.nosell.xyz"
 ) {
   const tagTitle = "NOSELL | " + title;
   const imageUrl = "https://www.nosell.xyz" + image;
   const tagKeyWords =
-    "digital products, sell for eth, sell for bitcoin, sell for usdt, web3 sell, web3 ecommerce, anonymous selling, anonymous" +
+    "digital products, sell for crypto, sell for bitcoin, sell for usdt, web3 sell, web3 ecommerce, anonymous selling, anonymous" +
     keywords;
   return {
     title: tagTitle,
