@@ -1,27 +1,24 @@
 "use client";
 
 import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { PlusIcon } from "@heroicons/react/20/solid";
-import {
-  navigationIni,
-  userNavigation,
-  user,
-  reMenu,
-} from "@/components/layout/nav/constant/menu";
+
+import { navigationInit, reMenu } from "@/components/layout/nav/constant/menu";
 import Link from "next/link";
 import {
   DesktopLoginButton,
   MobileLoginButton,
 } from "@/components/layout/nav/components/login-button";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Nav() {
-  const navigation = reMenu(navigationIni);
+  const pathname = usePathname();
+  const navigation = reMenu(navigationInit, pathname);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
