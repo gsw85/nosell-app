@@ -1,5 +1,3 @@
-import { usePathname } from "next/navigation";
-
 export const user = {
   name: "Tom Cook",
   email: "tom@example.com",
