@@ -5,6 +5,7 @@ export const metadata = metaheader("Settings", "Profile Setting");
 export default function Page() {
   return (
     <div className="flex flex-col space-y-5 text-gray-500">
+      <div className="font-semibold text-2xl text-black">How it works</div>
       <div className="overflow-hidden rounded-3xl mb-10">
         <img
           className="h-full w-full object-cover"
@@ -14,7 +15,6 @@ export default function Page() {
           }
         />
       </div>
-      <div className="font-semibold text-2xl text-black">About</div>
       <div>
         {`Welcome to nosell.xyz! Our platform is designed to make selling
             anything online easy and accessible to anyone. We believe that
