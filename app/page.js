@@ -1,81 +1,74 @@
 const products = [
   {
     id: 1,
-    name: "Basic Tee 8-Pack",
+    name: "10 MQ",
     href: "#",
     price: "RM 50",
-    description:
-      "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
+    description: "Quick Boost: Ideal for a taste of extra gaming perks.",
     options: "8 colors",
     imageSrc: "/img/selling/50.jpg",
-    imageAlt:
-      "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
+    imageAlt: "10 MQ",
   },
   {
     id: 2,
-    name: "Basic Tee",
+    name: "50 MQ",
     href: "#",
-    price: "RM 200",
-    description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    price: "RM 250",
+    description: "Casual Play: Enhance your regular gaming sessions",
     options: "Black",
     imageSrc: "/img/selling/200.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "50 MQ",
   },
   {
     id: 3,
-    name: "Basic Tee",
+    name: "100 MQ",
     href: "#",
     price: "RM 500",
-    description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    description: "Serious Gamer: Unlock new levels and features.",
     options: "Black",
     imageSrc: "/img/selling/500.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "100 MQ",
   },
   {
     id: 4,
-    name: "Basic Tee",
+    name: "200 MQ",
     href: "#",
     price: "RM 1,000",
-    description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    description: "Pro Gamer: For those aiming higher in the gaming world.",
     options: "Black",
     imageSrc: "/img/selling/1000.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "200 MQ",
   },
   {
     id: 5,
-    name: "Basic Tee",
+    name: "500 MQ",
     href: "#",
     price: "RM 2,000",
-    description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    description: "Elite Experience: For passionate gamers seeking the best.",
     options: "Black",
     imageSrc: "/img/selling/2000.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "500 MQ",
   },
   {
     id: 6,
-    name: "Basic Tee",
+    name: "1000 MQ",
     href: "#",
     price: "RM 5,000",
     description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+      "Ultimate Credits: Dive deep into the ultimate gaming adventure.",
     options: "Black",
     imageSrc: "/img/selling/5000.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "1000 MQ",
   },
   {
     id: 7,
-    name: "Basic Tee",
+    name: "2000 MQ",
     href: "#",
     price: "RM 10,000",
-    description:
-      "Look like a visionary CEO and wear the same black t-shirt every day.",
+    description: "Epic Journey: The ultimate package for the dedicated gamer.",
     options: "Black",
     imageSrc: "/img/selling/10000.jpg",
-    imageAlt: "Front of plain black t-shirt.",
+    imageAlt: "2000 MQ",
   },
   // More products...
 ];
@@ -134,9 +127,6 @@ export default function Home() {
                   </h3>
                   <p className="text-sm text-gray-500">{product.description}</p>
                   <div className="flex flex-1 flex-col justify-end">
-                    <p className="text-sm italic text-gray-500">
-                      {product.options}
-                    </p>
                     <p className="text-base font-medium text-gray-900">
                       {product.price}
                     </p>
