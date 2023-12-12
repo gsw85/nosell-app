@@ -3,12 +3,11 @@ const products = [
     id: 1,
     name: "Basic Tee 8-Pack",
     href: "#",
-    price: "$256",
+    price: "RM 50",
     description:
       "Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.",
     options: "8 colors",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg",
+    imageSrc: "/img/selling/50.jpg",
     imageAlt:
       "Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green.",
   },
@@ -16,72 +15,66 @@ const products = [
     id: 2,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 200",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/200.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   {
     id: 3,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 500",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/500.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   {
     id: 4,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 1,000",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/1000.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   {
     id: 5,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 2,000",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/2000.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   {
     id: 6,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 5,000",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/5000.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   {
     id: 7,
     name: "Basic Tee",
     href: "#",
-    price: "$32",
+    price: "RM 10,000",
     description:
       "Look like a visionary CEO and wear the same black t-shirt every day.",
     options: "Black",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-02.jpg",
+    imageSrc: "/img/selling/10000.jpg",
     imageAlt: "Front of plain black t-shirt.",
   },
   // More products...
