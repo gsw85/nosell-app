@@ -1,4 +1,5 @@
 import metaheader from "@/components/meta-header";
+import { contactLink } from "@/constant/contact";
 
 export const metadata = metaheader("Support");
 
@@ -40,7 +41,17 @@ export default function Page() {
         they meet your needs before purchasing. If you have any questions about
         our products/services, please contact us before making a purchase.
       </div>
-      <div>Thank you for your understanding and continued patronage.</div>
+      <div>
+        Thank you for your understanding and continued patronage. If you have
+        any other question, please feel free to{" "}
+        <a
+          className="text-indigo-500 hover:text-indigo-600"
+          target={"_blank"}
+          href={contactLink}
+        >
+          drop us a message
+        </a>
+      </div>
     </div>
   );
 }
